@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/supermarket-react-challenge/static/css/main.3fcdf6de.chunk.css",
+    "main.js": "/supermarket-react-challenge/static/js/main.d715b02f.chunk.js",
+    "main.js.map": "/supermarket-react-challenge/static/js/main.d715b02f.chunk.js.map",
+    "runtime-main.js": "/supermarket-react-challenge/static/js/runtime-main.c666108a.js",
+    "runtime-main.js.map": "/supermarket-react-challenge/static/js/runtime-main.c666108a.js.map",
+    "static/js/2.23050c07.chunk.js": "/supermarket-react-challenge/static/js/2.23050c07.chunk.js",
+    "static/js/2.23050c07.chunk.js.map": "/supermarket-react-challenge/static/js/2.23050c07.chunk.js.map",
+    "index.html": "/supermarket-react-challenge/index.html",
+    "precache-manifest.14775bf3458ead07b03cb307e33570ef.js": "/supermarket-react-challenge/precache-manifest.14775bf3458ead07b03cb307e33570ef.js",
+    "service-worker.js": "/supermarket-react-challenge/service-worker.js",
+    "static/css/main.3fcdf6de.chunk.css.map": "/supermarket-react-challenge/static/css/main.3fcdf6de.chunk.css.map",
+    "static/js/2.23050c07.chunk.js.LICENSE": "/supermarket-react-challenge/static/js/2.23050c07.chunk.js.LICENSE",
+    "static/media/delete-icon.svg": "/supermarket-react-challenge/static/media/delete-icon.9b217cd2.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c666108a.js",
+    "static/js/2.23050c07.chunk.js",
+    "static/css/main.3fcdf6de.chunk.css",
+    "static/js/main.d715b02f.chunk.js"
+  ]
+}
