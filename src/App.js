@@ -68,7 +68,7 @@ const App = () => {
     closeModal()
     try{
       await addItemToList(value)
-      .then(fetchData())
+      fetchData()
     } catch(err){
       console.log(err)
     }
@@ -77,7 +77,7 @@ const App = () => {
   async function deleteItem(id) {
     try{
       await deleteItemFromList(id)
-      .then(fetchData())
+      fetchData()
     } catch(err){
       console.log(err)
     }
