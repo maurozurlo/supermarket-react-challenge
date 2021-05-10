@@ -1,14 +1,16 @@
-import styled from 'styled-components'
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 const ModalContainer = styled.div`
   z-index: 999;
   position: absolute;
   min-width: 100%;
-  min-height:100%;
+  min-height: 100%;
   background: var(--overlay);
   display: flex;
-  justify-content: center;`
+  justify-content: center;
+`
 
 const ModalCard = styled.div`
   z-index: 9999;
@@ -22,18 +24,18 @@ const ModalCard = styled.div`
   border-radius: 10px;
   box-shadow: 0px 1px 5px 0px var(--grey-light);
 
-  & h2{
+  & h2 {
     text-align: center;
   }
 
-  & input{
-      border: 1px solid var(--grey-light);
-      min-height: 40px;
-      border-radius: 5px;
-      margin-bottom: 24px;
-      padding-left: 10px;
-      font-size: 14px;
-    }
+  & input {
+    border: 1px solid var(--grey-light);
+    min-height: 40px;
+    border-radius: 5px;
+    margin-bottom: 24px;
+    padding-left: 10px;
+    font-size: 14px;
+  }
 `
 
 const ButtonContainer = styled.div`
@@ -43,25 +45,25 @@ const ButtonContainer = styled.div`
 
   & button {
     font-weight: 600;
-    border-radius: .3em;
+    border-radius: 0.3em;
     font-size: 16px;
     min-width: 90px;
     padding: 10px 0;
   }
 
-  & button.outline{
+  & button.outline {
     border: 1px solid var(--grey-mid);
     background-color: transparent;
-    :hover{
+    :hover {
       cursor: pointer;
       background: var(--grey);
     }
   }
-  & button.primary{
+  & button.primary {
     background-color: var(--blue-light);
     border: none;
     color: white;
-    & :hover{
+    & :hover {
       background-color: var(--blue-light-2);
       cursor: pointer;
       color: var(--grey);
@@ -69,21 +71,19 @@ const ButtonContainer = styled.div`
   }
 
   & button:disabled,
-  button[disabled]{
+  button[disabled] {
     border: 1px solid var(--grey-mid);
     background-color: var(--grey);
     color: var(--grey-mid);
   }
 `
 
-
-
 const Modal = (props) => {
-  //Enable/disable button
+  // Enable/disable button
   const [disabled, setDisabledState] = useState(true)
   const enableButton = () => setDisabledState(false)
   const disableButton = () => setDisabledState(true)
-  //Input
+  // Input
   const handleInput = (e) => {
     setItemState(e.target.value)
     if (e.target.value !== '') {
@@ -94,19 +94,30 @@ const Modal = (props) => {
   }
   const [itemValue, setItemState] = useState('')
 
-
   return (
     <ModalContainer>
       <ModalCard>
         <h2>Add Item</h2>
-        <input type="text" value={itemValue} onChange={handleInput} autoFocus/>
+        <input type="text" value={itemValue} onChange={handleInput} autoFocus />
         <ButtonContainer>
-          <button className="outline" onClick={props.close} >Cancel</button>
-          <button className="primary" disabled={disabled} onClick={() => props.addItemToList(itemValue)}>Add</button>
+          <button className="outline" onClick={props.close}>
+            Cancel
+          </button>
+          <button
+            className="primary"
+            disabled={disabled}
+            onClick={() => props.addItemToList(itemValue)}>
+            Add
+          </button>
         </ButtonContainer>
       </ModalCard>
     </ModalContainer>
   )
+}
+
+Modal.propTypes = {
+  close: PropTypes.func,
+  addItemToList: PropTypes.func
 }
 
 export default Modal
