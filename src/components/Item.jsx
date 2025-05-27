@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ReactComponent as TrashIcon } from '../icons/delete-icon.svg'
+import TrashIcon from '../icons/delete-icon.svg?react'
 
 const ItemComponent = styled.li`
   margin: 0.75em 0;
@@ -17,32 +17,37 @@ const ItemComponent = styled.li`
   & p {
     margin: 0;
   }
-  & button {
-    border: none;
-    background: transparent;
-    & svg {
-      width: 20px;
-      :hover {
-        cursor: pointer;
-        filter: brightness(0.5);
-      }
-    }
+& button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  & svg {
+    width: 20px;
+    fill: currentColor;
+    color: #bfbfbf;
+    transition: color 0.2s ease;
   }
+
+  &:hover svg {
+    color: #5f5f5f;
+  }
+}
 `
 
 const Item = (props) => (
-  <ItemComponent>
-    <p>{props.itemName}</p>{' '}
-    <button onClick={() => props.deleteItem(props.id)}>
-      <TrashIcon />
-    </button>
-  </ItemComponent>
+    <ItemComponent>
+        <p>{props.itemName}</p>{' '}
+        <button onClick={() => props.deleteItem(props.id)}>
+            <TrashIcon />
+        </button>
+    </ItemComponent>
 )
 
 Item.propTypes = {
-  itemName: PropTypes.string,
-  deleteItem: PropTypes.func,
-  id: PropTypes.number
+    itemName: PropTypes.string,
+    deleteItem: PropTypes.func,
+    id: PropTypes.number
 }
 
 export default Item

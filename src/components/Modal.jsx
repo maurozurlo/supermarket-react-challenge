@@ -79,45 +79,45 @@ const ButtonContainer = styled.div`
 `
 
 const Modal = (props) => {
-  // Enable/disable button
-  const [disabled, setDisabledState] = useState(true)
-  const enableButton = () => setDisabledState(false)
-  const disableButton = () => setDisabledState(true)
-  // Input
-  const handleInput = (e) => {
-    setItemState(e.target.value)
-    if (e.target.value !== '') {
-      enableButton()
-    } else {
-      disableButton()
+    // Enable/disable button
+    const [disabled, setDisabledState] = useState(true)
+    const enableButton = () => setDisabledState(false)
+    const disableButton = () => setDisabledState(true)
+    // Input
+    const handleInput = (e) => {
+        setItemState(e.target.value)
+        if (e.target.value !== '') {
+            enableButton()
+        } else {
+            disableButton()
+        }
     }
-  }
-  const [itemValue, setItemState] = useState('')
+    const [itemValue, setItemState] = useState('')
 
-  return (
-    <ModalContainer>
-      <ModalCard>
-        <h2>Add Item</h2>
-        <input type="text" value={itemValue} onChange={handleInput} autoFocus />
-        <ButtonContainer>
-          <button className="outline" onClick={props.close}>
-            Cancel
-          </button>
-          <button
-            className="primary"
-            disabled={disabled}
-            onClick={() => props.addItemToList(itemValue)}>
-            Add
-          </button>
-        </ButtonContainer>
-      </ModalCard>
-    </ModalContainer>
-  )
+    return (
+        <ModalContainer>
+            <ModalCard>
+                <h2>Add Item</h2>
+                <input type="text" value={itemValue} onChange={handleInput} autoFocus />
+                <ButtonContainer>
+                    <button className="outline" onClick={props.close}>
+                        Cancel
+                    </button>
+                    <button
+                        className="primary"
+                        disabled={disabled}
+                        onClick={() => props.addItemToList(itemValue)}>
+                        Add
+                    </button>
+                </ButtonContainer>
+            </ModalCard>
+        </ModalContainer>
+    )
 }
 
 Modal.propTypes = {
-  close: PropTypes.func,
-  addItemToList: PropTypes.func
+    close: PropTypes.func,
+    addItemToList: PropTypes.func
 }
 
 export default Modal
